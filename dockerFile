@@ -1,0 +1,17 @@
+# Set the base image to Ubuntu
+FROM ubuntu
+
+# Update the repository sources list
+RUN apt-get update
+
+# Expose the default port
+EXPOSE 7474
+
+
+
+RUN wget 'http://neo4j.com/artifact.php?name=neo4j-community-2.3.0-M01-unix.tar.gz'
+RUN mv artifact.php?name=neo4j-community-2.3.0-M01-unix.tar.gz neo4j.tar.gz
+RUN tar -xvf neo4j
+RUN mv neo4j-community-2.3.0-M01/ neo4j
+RUN rm neo4j.tar.gz
+
